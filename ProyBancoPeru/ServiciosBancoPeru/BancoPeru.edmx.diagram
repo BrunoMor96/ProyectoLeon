@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="de1054526ec64ffca0f600b5a1049112" Name="Diagram1">
+        <EntityTypeShape EntityType="BancoPeruModel.CLIENTE" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BancoPeruModel.CUENTA" Width="1.5" PointX="3" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BancoPeruModel.DEPARTAMENTO" Width="1.5" PointX="0.75" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BancoPeruModel.DETALLE_PRESTAMO" Width="1.5" PointX="5.25" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BancoPeruModel.EMPLEADO" Width="1.5" PointX="3" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BancoPeruModel.PAGO" Width="1.5" PointX="5.25" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BancoPeruModel.PRESTAMO" Width="1.5" PointX="3" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BancoPeruModel.SUCURSAL" Width="1.5" PointX="1.5" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BancoPeruModel.EMPLEADOSPORSUCURSAL" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BancoPeruModel.PRESTAMOS" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BancoPeruModel.PUESTOSEMPLEADOS" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BancoPeruModel.vvw_CUENTACLIENTE" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BancoPeruModel.vw_Cliente" Width="1.5" PointX="7.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BancoPeruModel.vw_EmpleadoDepartamentoSucursal" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BancoPeruModel.vw_VistaPagos" Width="1.5" PointX="9.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BancoPeruModel.vw_VistaPrestamos" Width="1.5" PointX="9.75" PointY="7.75" IsExpanded="true" />
+        <AssociationConnector Association="BancoPeruModel.FK__CUENTA__IdClient__05D8E0BE" ManuallyRouted="false" />
+        <AssociationConnector Association="BancoPeruModel.FK__CUENTA__IdClient__06CD04F7" ManuallyRouted="false" />
+        <AssociationConnector Association="BancoPeruModel.FK__CUENTA__IdClient__1BC821DD" ManuallyRouted="false" />
+        <AssociationConnector Association="BancoPeruModel.FK__CUENTA__IdClient__1CBC4616" ManuallyRouted="false" />
+        <AssociationConnector Association="BancoPeruModel.FK__CUENTA__IdClient__571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="BancoPeruModel.FK__CUENTA__IdClient__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="BancoPeruModel.FK__PRESTAMO__IdCLie__0C85DE4D" ManuallyRouted="false" />
+        <AssociationConnector Association="BancoPeruModel.FK__PRESTAMO__IdCLie__22751F6C" ManuallyRouted="false" />
+        <AssociationConnector Association="BancoPeruModel.FK__PRESTAMO__IdCLie__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="BancoPeruModel.FK__DEPARTAME__IdSuc__07C12930" ManuallyRouted="false" />
+        <AssociationConnector Association="BancoPeruModel.FK__DEPARTAME__IdSuc__1DB06A4F" ManuallyRouted="false" />
+        <AssociationConnector Association="BancoPeruModel.FK__DEPARTAME__IdSuc__5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="BancoPeruModel.FK__EMPLEADO__IdDepa__0A9D95DB" ManuallyRouted="false" />
+        <AssociationConnector Association="BancoPeruModel.FK__EMPLEADO__IdDepa__208CD6FA" ManuallyRouted="false" />
+        <AssociationConnector Association="BancoPeruModel.FK__EMPLEADO__IdDepa__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="BancoPeruModel.FK__DETALLE_P__IdEmp__08B54D69" ManuallyRouted="false" />
+        <AssociationConnector Association="BancoPeruModel.FK__DETALLE_P__IdEmp__1EA48E88" ManuallyRouted="false" />
+        <AssociationConnector Association="BancoPeruModel.FK__DETALLE_P__IdEmp__5DCAEF64" ManuallyRouted="false" />
+        <AssociationConnector Association="BancoPeruModel.FK__DETALLE_P__IdPre__09A971A2" ManuallyRouted="false" />
+        <AssociationConnector Association="BancoPeruModel.FK__DETALLE_P__IdPre__1F98B2C1" ManuallyRouted="false" />
+        <AssociationConnector Association="BancoPeruModel.FK__DETALLE_P__IdPre__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="BancoPeruModel.FK__PAGO__IdPrestamo__0B91BA14" ManuallyRouted="false" />
+        <AssociationConnector Association="BancoPeruModel.FK__PAGO__IdPrestamo__2180FB33" ManuallyRouted="false" />
+        <AssociationConnector Association="BancoPeruModel.FK__PAGO__IdPrestamo__5812160E" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,48 @@
+C:\Users\Larissa\Pictures\PoryBancoApliII\ProyBancoPeru\ServiciosBancoPeru\bin\Debug\ServiciosBancoPeru.dll.config
+C:\Users\Larissa\Pictures\PoryBancoApliII\ProyBancoPeru\ServiciosBancoPeru\bin\Debug\ServiciosBancoPeru.dll
+C:\Users\Larissa\Pictures\PoryBancoApliII\ProyBancoPeru\ServiciosBancoPeru\bin\Debug\ServiciosBancoPeru.pdb
+C:\Users\Larissa\Pictures\PoryBancoApliII\ProyBancoPeru\ServiciosBancoPeru\bin\Debug\EntityFramework.dll
+C:\Users\Larissa\Pictures\PoryBancoApliII\ProyBancoPeru\ServiciosBancoPeru\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Larissa\Pictures\PoryBancoApliII\ProyBancoPeru\ServiciosBancoPeru\bin\Debug\EntityFramework.xml
+C:\Users\Larissa\Pictures\PoryBancoApliII\ProyBancoPeru\ServiciosBancoPeru\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Larissa\Pictures\PoryBancoApliII\ProyBancoPeru\ServiciosBancoPeru\obj\Debug\ServiciosBancoPeru.csprojAssemblyReference.cache
+C:\Users\Larissa\Pictures\PoryBancoApliII\ProyBancoPeru\ServiciosBancoPeru\obj\Debug\ServiciosBancoPeru.csproj.CoreCompileInputs.cache
+C:\Users\Larissa\Pictures\PoryBancoApliII\ProyBancoPeru\ServiciosBancoPeru\obj\Debug\ServiciosBancoPeru.csproj.CopyComplete
+C:\Users\Larissa\Pictures\PoryBancoApliII\ProyBancoPeru\ServiciosBancoPeru\obj\Debug\ServiciosBancoPeru.dll
+C:\Users\Larissa\Pictures\PoryBancoApliII\ProyBancoPeru\ServiciosBancoPeru\obj\Debug\ServiciosBancoPeru.pdb
+C:\Users\Bruno\Desktop\CursosIsil\DesarrolloAppII\Proyecto\Avance2_JacoboPachas\ProyBancoPeru\ServiciosBancoPeru\bin\Debug\ServiciosBancoPeru.dll.config
+C:\Users\Bruno\Desktop\CursosIsil\DesarrolloAppII\Proyecto\Avance2_JacoboPachas\ProyBancoPeru\ServiciosBancoPeru\bin\Debug\ServiciosBancoPeru.dll
+C:\Users\Bruno\Desktop\CursosIsil\DesarrolloAppII\Proyecto\Avance2_JacoboPachas\ProyBancoPeru\ServiciosBancoPeru\bin\Debug\ServiciosBancoPeru.pdb
+C:\Users\Bruno\Desktop\CursosIsil\DesarrolloAppII\Proyecto\Avance2_JacoboPachas\ProyBancoPeru\ServiciosBancoPeru\bin\Debug\EntityFramework.dll
+C:\Users\Bruno\Desktop\CursosIsil\DesarrolloAppII\Proyecto\Avance2_JacoboPachas\ProyBancoPeru\ServiciosBancoPeru\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Bruno\Desktop\CursosIsil\DesarrolloAppII\Proyecto\Avance2_JacoboPachas\ProyBancoPeru\ServiciosBancoPeru\bin\Debug\EntityFramework.xml
+C:\Users\Bruno\Desktop\CursosIsil\DesarrolloAppII\Proyecto\Avance2_JacoboPachas\ProyBancoPeru\ServiciosBancoPeru\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Bruno\Desktop\CursosIsil\DesarrolloAppII\Proyecto\Avance2_JacoboPachas\ProyBancoPeru\ServiciosBancoPeru\obj\Debug\ServiciosBancoPeru.csprojAssemblyReference.cache
+C:\Users\Bruno\Desktop\CursosIsil\DesarrolloAppII\Proyecto\Avance2_JacoboPachas\ProyBancoPeru\ServiciosBancoPeru\obj\Debug\ServiciosBancoPeru.csproj.CoreCompileInputs.cache
+C:\Users\Bruno\Desktop\CursosIsil\DesarrolloAppII\Proyecto\Avance2_JacoboPachas\ProyBancoPeru\ServiciosBancoPeru\obj\Debug\ServiciosBancoPeru.csproj.CopyComplete
+C:\Users\Bruno\Desktop\CursosIsil\DesarrolloAppII\Proyecto\Avance2_JacoboPachas\ProyBancoPeru\ServiciosBancoPeru\obj\Debug\ServiciosBancoPeru.dll
+C:\Users\Bruno\Desktop\CursosIsil\DesarrolloAppII\Proyecto\Avance2_JacoboPachas\ProyBancoPeru\ServiciosBancoPeru\obj\Debug\ServiciosBancoPeru.pdb
+C:\Users\Bruno\Desktop\Cursos\DesarrolloAppII\Proyecto\Avance2_JacoboPachas\ProyBancoPeru\ServiciosBancoPeru\bin\Debug\ServiciosBancoPeru.dll.config
+C:\Users\Bruno\Desktop\Cursos\DesarrolloAppII\Proyecto\Avance2_JacoboPachas\ProyBancoPeru\ServiciosBancoPeru\bin\Debug\ServiciosBancoPeru.dll
+C:\Users\Bruno\Desktop\Cursos\DesarrolloAppII\Proyecto\Avance2_JacoboPachas\ProyBancoPeru\ServiciosBancoPeru\bin\Debug\ServiciosBancoPeru.pdb
+C:\Users\Bruno\Desktop\Cursos\DesarrolloAppII\Proyecto\Avance2_JacoboPachas\ProyBancoPeru\ServiciosBancoPeru\bin\Debug\EntityFramework.dll
+C:\Users\Bruno\Desktop\Cursos\DesarrolloAppII\Proyecto\Avance2_JacoboPachas\ProyBancoPeru\ServiciosBancoPeru\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Bruno\Desktop\Cursos\DesarrolloAppII\Proyecto\Avance2_JacoboPachas\ProyBancoPeru\ServiciosBancoPeru\bin\Debug\EntityFramework.xml
+C:\Users\Bruno\Desktop\Cursos\DesarrolloAppII\Proyecto\Avance2_JacoboPachas\ProyBancoPeru\ServiciosBancoPeru\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Bruno\Desktop\Cursos\DesarrolloAppII\Proyecto\Avance2_JacoboPachas\ProyBancoPeru\ServiciosBancoPeru\obj\Debug\ServiciosBancoPeru.csproj.CoreCompileInputs.cache
+C:\Users\Bruno\Desktop\Cursos\DesarrolloAppII\Proyecto\Avance2_JacoboPachas\ProyBancoPeru\ServiciosBancoPeru\obj\Debug\ServiciosBancoPeru.csproj.CopyComplete
+C:\Users\Bruno\Desktop\Cursos\DesarrolloAppII\Proyecto\Avance2_JacoboPachas\ProyBancoPeru\ServiciosBancoPeru\obj\Debug\ServiciosBancoPeru.dll
+C:\Users\Bruno\Desktop\Cursos\DesarrolloAppII\Proyecto\Avance2_JacoboPachas\ProyBancoPeru\ServiciosBancoPeru\obj\Debug\ServiciosBancoPeru.pdb
+C:\Users\Bruno\Desktop\Cursos\DesarrolloAppII\Proyecto\Avance2_JacoboPachas\ProyBancoPeru\ServiciosBancoPeru\obj\Debug\ServiciosBancoPeru.csprojAssemblyReference.cache
+C:\Users\Bruno\Desktop\Cursos\DesarrolloAppII\Nueva carpeta\ProyBancoPeru\ServiciosBancoPeru\bin\Debug\ServiciosBancoPeru.dll.config
+C:\Users\Bruno\Desktop\Cursos\DesarrolloAppII\Nueva carpeta\ProyBancoPeru\ServiciosBancoPeru\bin\Debug\ServiciosBancoPeru.dll
+C:\Users\Bruno\Desktop\Cursos\DesarrolloAppII\Nueva carpeta\ProyBancoPeru\ServiciosBancoPeru\bin\Debug\ServiciosBancoPeru.pdb
+C:\Users\Bruno\Desktop\Cursos\DesarrolloAppII\Nueva carpeta\ProyBancoPeru\ServiciosBancoPeru\bin\Debug\EntityFramework.dll
+C:\Users\Bruno\Desktop\Cursos\DesarrolloAppII\Nueva carpeta\ProyBancoPeru\ServiciosBancoPeru\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Bruno\Desktop\Cursos\DesarrolloAppII\Nueva carpeta\ProyBancoPeru\ServiciosBancoPeru\bin\Debug\EntityFramework.xml
+C:\Users\Bruno\Desktop\Cursos\DesarrolloAppII\Nueva carpeta\ProyBancoPeru\ServiciosBancoPeru\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Bruno\Desktop\Cursos\DesarrolloAppII\Nueva carpeta\ProyBancoPeru\ServiciosBancoPeru\obj\Debug\ServiciosBancoPeru.csproj.CoreCompileInputs.cache
+C:\Users\Bruno\Desktop\Cursos\DesarrolloAppII\Nueva carpeta\ProyBancoPeru\ServiciosBancoPeru\obj\Debug\ServiciosBancoPeru.csproj.CopyComplete
+C:\Users\Bruno\Desktop\Cursos\DesarrolloAppII\Nueva carpeta\ProyBancoPeru\ServiciosBancoPeru\obj\Debug\ServiciosBancoPeru.dll
+C:\Users\Bruno\Desktop\Cursos\DesarrolloAppII\Nueva carpeta\ProyBancoPeru\ServiciosBancoPeru\obj\Debug\ServiciosBancoPeru.pdb
+C:\Users\Bruno\Desktop\Cursos\DesarrolloAppII\Nueva carpeta\ProyBancoPeru\ServiciosBancoPeru\obj\Debug\ServiciosBancoPeru.csprojAssemblyReference.cache

@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1062
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiciosBancoPeru", "ServiciosBancoPeru\ServiciosBancoPeru.csproj", "{8D7A7E67-A229-4F73-906D-0D028089D417}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BancoPeru", "BancoPeru\BancoPeru.csproj", "{83B0D1D7-682B-40C0-90B7-9F77E84B1789}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8D7A7E67-A229-4F73-906D-0D028089D417} = {8D7A7E67-A229-4F73-906D-0D028089D417}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8D7A7E67-A229-4F73-906D-0D028089D417}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D7A7E67-A229-4F73-906D-0D028089D417}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D7A7E67-A229-4F73-906D-0D028089D417}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D7A7E67-A229-4F73-906D-0D028089D417}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83B0D1D7-682B-40C0-90B7-9F77E84B1789}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83B0D1D7-682B-40C0-90B7-9F77E84B1789}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83B0D1D7-682B-40C0-90B7-9F77E84B1789}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83B0D1D7-682B-40C0-90B7-9F77E84B1789}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {82451FE5-BAE1-4C9B-B414-8D442483F87D}
+	EndGlobalSection
+EndGlobal

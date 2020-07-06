@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ServiciosBancoPeru" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ServiciosBancoPeru" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfPrestamoBE">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PrestamoBE" nillable="true" type="tns:PrestamoBE" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPrestamoBE" nillable="true" type="tns:ArrayOfPrestamoBE" />
+  <xs:complexType name="PrestamoBE">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Apellido_Cliente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cod_Cli" type="xs:float" />
+      <xs:element minOccurs="0" name="Cod_Prest" type="xs:float" />
+      <xs:element minOccurs="0" name="Est_Prest" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Fec_Prest" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Importe" type="xs:float" />
+      <xs:element minOccurs="0" name="Importe_Total" type="xs:float" />
+      <xs:element minOccurs="0" name="Interes_Importe" type="xs:float" />
+      <xs:element minOccurs="0" name="Nombre_Cliente" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PrestamoBE" nillable="true" type="tns:PrestamoBE" />
+</xs:schema>

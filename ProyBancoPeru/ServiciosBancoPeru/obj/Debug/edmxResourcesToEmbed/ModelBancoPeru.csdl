@@ -1,0 +1,394 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BancoPeruModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CLIENTE">
+    <Key>
+      <PropertyRef Name="IdCliente" />
+    </Key>
+    <Property Name="IdCliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DNICliente" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="NombreCliente" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ApellidoCliente" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DireccionCliente" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TelefonoCliente" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="EmailCLiente" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CUENTA" Relationship="Self.FK__CUENTA__IdClient__571DF1D5" FromRole="CLIENTE" ToRole="CUENTA" />
+    <NavigationProperty Name="PRESTAMO" Relationship="Self.FK__PRESTAMO__IdCLie__59063A47" FromRole="CLIENTE" ToRole="PRESTAMO" />
+  </EntityType>
+  <EntityType Name="CUENTA">
+    <Key>
+      <PropertyRef Name="IdCuenta" />
+    </Key>
+    <Property Name="IdCuenta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NroCuenta" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Clave" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Saldo" Type="Int32" Nullable="false" />
+    <Property Name="FechaApertura" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="FechaCierre" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="CLIENTE" Relationship="Self.FK__CUENTA__IdClient__571DF1D5" FromRole="CUENTA" ToRole="CLIENTE" />
+  </EntityType>
+  <EntityType Name="DEPARTAMENTO">
+    <Key>
+      <PropertyRef Name="IdDepartamento" />
+    </Key>
+    <Property Name="IdDepartamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NombreDepartamento" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="SUCURSAL" Relationship="Self.FK__DEPARTAME__IdSuc__5AEE82B9" FromRole="DEPARTAMENTO" ToRole="SUCURSAL" />
+    <NavigationProperty Name="EMPLEADO" Relationship="Self.FK__EMPLEADO__IdDepa__59FA5E80" FromRole="DEPARTAMENTO" ToRole="EMPLEADO" />
+  </EntityType>
+  <EntityType Name="DETALLE_PRESTAMO">
+    <Key>
+      <PropertyRef Name="IdPrestamo" />
+      <PropertyRef Name="IdEmpleado" />
+    </Key>
+    <Property Name="IdPrestamo" Type="Int32" Nullable="false" />
+    <Property Name="IdEmpleado" Type="Int32" Nullable="false" />
+    <Property Name="Sucursal" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="EMPLEADO" Relationship="Self.FK__DETALLE_P__IdEmp__5DCAEF64" FromRole="DETALLE_PRESTAMO" ToRole="EMPLEADO" />
+    <NavigationProperty Name="PRESTAMO" Relationship="Self.FK__DETALLE_P__IdPre__5CD6CB2B" FromRole="DETALLE_PRESTAMO" ToRole="PRESTAMO" />
+  </EntityType>
+  <EntityType Name="EMPLEADO">
+    <Key>
+      <PropertyRef Name="IdEmpleado" />
+    </Key>
+    <Property Name="IdEmpleado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DNIEmpleado" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="NombreEmpleado" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ApellidoEmplado" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TelefonoEmpleado" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="EmailEmpleado" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DireccionEmpleado" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SueldoEmpleado" Type="Int32" Nullable="false" />
+    <Property Name="FechaIngreso" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="FechaSalida" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="DEPARTAMENTO" Relationship="Self.FK__EMPLEADO__IdDepa__59FA5E80" FromRole="EMPLEADO" ToRole="DEPARTAMENTO" />
+    <NavigationProperty Name="DETALLE_PRESTAMO" Relationship="Self.FK__DETALLE_P__IdEmp__5DCAEF64" FromRole="EMPLEADO" ToRole="DETALLE_PRESTAMO" />
+  </EntityType>
+  <EntityType Name="PAGO">
+    <Key>
+      <PropertyRef Name="IdPago" />
+    </Key>
+    <Property Name="IdPago" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NroCuota" Type="Int32" Nullable="false" />
+    <Property Name="ImportePago" Type="Int32" Nullable="false" />
+    <Property Name="FechaPago" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="FechaVencimiento" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="EstadoPago" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="PRESTAMO" Relationship="Self.FK__PAGO__IdPrestamo__5812160E" FromRole="PAGO" ToRole="PRESTAMO" />
+  </EntityType>
+  <EntityType Name="PRESTAMO">
+    <Key>
+      <PropertyRef Name="IdPrestamo" />
+    </Key>
+    <Property Name="IdPrestamo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Importe" Type="Int32" Nullable="false" />
+    <Property Name="Cuotas" Type="Int32" Nullable="false" />
+    <Property Name="FechaPrestamo" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="EstadoPrestamo" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="CLIENTE" Relationship="Self.FK__PRESTAMO__IdCLie__59063A47" FromRole="PRESTAMO" ToRole="CLIENTE" />
+    <NavigationProperty Name="DETALLE_PRESTAMO" Relationship="Self.FK__DETALLE_P__IdPre__5CD6CB2B" FromRole="PRESTAMO" ToRole="DETALLE_PRESTAMO" />
+    <NavigationProperty Name="PAGO" Relationship="Self.FK__PAGO__IdPrestamo__5812160E" FromRole="PRESTAMO" ToRole="PAGO" />
+  </EntityType>
+  <EntityType Name="SUCURSAL">
+    <Key>
+      <PropertyRef Name="IdSucursal" />
+    </Key>
+    <Property Name="IdSucursal" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NombreSucursal" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DireccionSucursal" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TelefonoSucursal" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="DEPARTAMENTO" Relationship="Self.FK__DEPARTAME__IdSuc__5AEE82B9" FromRole="SUCURSAL" ToRole="DEPARTAMENTO" />
+  </EntityType>
+  <EntityType Name="EMPLEADOSPORSUCURSAL">
+    <Key>
+      <PropertyRef Name="SUCURSAL" />
+    </Key>
+    <Property Name="CANTIDAD_EMPLEADOS" Type="Int32" />
+    <Property Name="SUCURSAL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PRESTAMOS">
+    <Key>
+      <PropertyRef Name="NombreCliente" />
+      <PropertyRef Name="ApellidoCliente" />
+      <PropertyRef Name="Importe" />
+    </Key>
+    <Property Name="NombreCliente" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ApellidoCliente" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Importe" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PUESTOSEMPLEADOS">
+    <Key>
+      <PropertyRef Name="DATOS_EMPLEADO" />
+      <PropertyRef Name="NombreDepartamento" />
+      <PropertyRef Name="NombreSucursal" />
+    </Key>
+    <Property Name="DATOS_EMPLEADO" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NombreDepartamento" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NombreSucursal" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vw_VistaPagos">
+    <Key>
+      <PropertyRef Name="IdPago" />
+      <PropertyRef Name="ImportePago" />
+      <PropertyRef Name="NroCuota" />
+      <PropertyRef Name="FechaPago" />
+      <PropertyRef Name="Nombres" />
+      <PropertyRef Name="DNICliente" />
+      <PropertyRef Name="EstadoPago" />
+      <PropertyRef Name="IdPrestamo" />
+      <PropertyRef Name="IdCliente" />
+    </Key>
+    <Property Name="IdPago" Type="Int32" Nullable="false" />
+    <Property Name="ImportePago" Type="Int32" Nullable="false" />
+    <Property Name="NroCuota" Type="Int32" Nullable="false" />
+    <Property Name="FechaPago" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Nombres" Type="String" MaxLength="201" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DNICliente" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="EstadoPago" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Estado" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+    <Property Name="IdPrestamo" Type="Int32" Nullable="false" />
+    <Property Name="IdCliente" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vw_VistaPrestamos">
+    <Key>
+      <PropertyRef Name="IdPrestamo" />
+      <PropertyRef Name="FechaPrestamo" />
+      <PropertyRef Name="IdCLiente" />
+      <PropertyRef Name="NombresCliente" />
+      <PropertyRef Name="DNICliente" />
+      <PropertyRef Name="Importe" />
+      <PropertyRef Name="EstadoPrestamo" />
+    </Key>
+    <Property Name="IdPrestamo" Type="Int32" Nullable="false" />
+    <Property Name="FechaPrestamo" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="IdCLiente" Type="Int32" Nullable="false" />
+    <Property Name="NombresCliente" Type="String" MaxLength="201" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DNICliente" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Importe" Type="Int32" Nullable="false" />
+    <Property Name="Interestotal" Type="Decimal" Precision="13" Scale="2" />
+    <Property Name="Importetotal" Type="Decimal" Precision="14" Scale="2" />
+    <Property Name="EstadoPrestamo" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Estado" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK__CUENTA__IdClient__571DF1D5">
+    <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+    <End Role="CUENTA" Type="Self.CUENTA" Multiplicity="*" />
+  </Association>
+  <Association Name="FK__PRESTAMO__IdCLie__59063A47">
+    <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+    <End Role="PRESTAMO" Type="Self.PRESTAMO" Multiplicity="*" />
+  </Association>
+  <Association Name="FK__DEPARTAME__IdSuc__5AEE82B9">
+    <End Role="SUCURSAL" Type="Self.SUCURSAL" Multiplicity="1" />
+    <End Role="DEPARTAMENTO" Type="Self.DEPARTAMENTO" Multiplicity="*" />
+  </Association>
+  <Association Name="FK__EMPLEADO__IdDepa__59FA5E80">
+    <End Role="DEPARTAMENTO" Type="Self.DEPARTAMENTO" Multiplicity="1" />
+    <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="*" />
+  </Association>
+  <Association Name="FK__DETALLE_P__IdEmp__5DCAEF64">
+    <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="1" />
+    <End Role="DETALLE_PRESTAMO" Type="Self.DETALLE_PRESTAMO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLEADO">
+        <PropertyRef Name="IdEmpleado" />
+      </Principal>
+      <Dependent Role="DETALLE_PRESTAMO">
+        <PropertyRef Name="IdEmpleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DETALLE_P__IdPre__5CD6CB2B">
+    <End Role="PRESTAMO" Type="Self.PRESTAMO" Multiplicity="1" />
+    <End Role="DETALLE_PRESTAMO" Type="Self.DETALLE_PRESTAMO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRESTAMO">
+        <PropertyRef Name="IdPrestamo" />
+      </Principal>
+      <Dependent Role="DETALLE_PRESTAMO">
+        <PropertyRef Name="IdPrestamo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PAGO__IdPrestamo__5812160E">
+    <End Role="PRESTAMO" Type="Self.PRESTAMO" Multiplicity="1" />
+    <End Role="PAGO" Type="Self.PAGO" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="BancoPeruEntitiess" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" />
+    <EntitySet Name="CUENTA" EntityType="Self.CUENTA" />
+    <EntitySet Name="DEPARTAMENTO" EntityType="Self.DEPARTAMENTO" />
+    <EntitySet Name="DETALLE_PRESTAMO" EntityType="Self.DETALLE_PRESTAMO" />
+    <EntitySet Name="EMPLEADO" EntityType="Self.EMPLEADO" />
+    <EntitySet Name="PAGO" EntityType="Self.PAGO" />
+    <EntitySet Name="PRESTAMO" EntityType="Self.PRESTAMO" />
+    <EntitySet Name="SUCURSAL" EntityType="Self.SUCURSAL" />
+    <EntitySet Name="EMPLEADOSPORSUCURSAL" EntityType="Self.EMPLEADOSPORSUCURSAL" />
+    <EntitySet Name="PRESTAMOS" EntityType="Self.PRESTAMOS" />
+    <EntitySet Name="PUESTOSEMPLEADOS" EntityType="Self.PUESTOSEMPLEADOS" />
+    <EntitySet Name="vw_VistaPagos" EntityType="Self.vw_VistaPagos" />
+    <EntitySet Name="vw_VistaPrestamos" EntityType="Self.vw_VistaPrestamos" />
+    <AssociationSet Name="FK__CUENTA__IdClient__571DF1D5" Association="Self.FK__CUENTA__IdClient__571DF1D5">
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+      <End Role="CUENTA" EntitySet="CUENTA" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PRESTAMO__IdCLie__59063A47" Association="Self.FK__PRESTAMO__IdCLie__59063A47">
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+      <End Role="PRESTAMO" EntitySet="PRESTAMO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DEPARTAME__IdSuc__5AEE82B9" Association="Self.FK__DEPARTAME__IdSuc__5AEE82B9">
+      <End Role="SUCURSAL" EntitySet="SUCURSAL" />
+      <End Role="DEPARTAMENTO" EntitySet="DEPARTAMENTO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EMPLEADO__IdDepa__59FA5E80" Association="Self.FK__EMPLEADO__IdDepa__59FA5E80">
+      <End Role="DEPARTAMENTO" EntitySet="DEPARTAMENTO" />
+      <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DETALLE_P__IdEmp__5DCAEF64" Association="Self.FK__DETALLE_P__IdEmp__5DCAEF64">
+      <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+      <End Role="DETALLE_PRESTAMO" EntitySet="DETALLE_PRESTAMO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DETALLE_P__IdPre__5CD6CB2B" Association="Self.FK__DETALLE_P__IdPre__5CD6CB2B">
+      <End Role="PRESTAMO" EntitySet="PRESTAMO" />
+      <End Role="DETALLE_PRESTAMO" EntitySet="DETALLE_PRESTAMO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PAGO__IdPrestamo__5812160E" Association="Self.FK__PAGO__IdPrestamo__5812160E">
+      <End Role="PRESTAMO" EntitySet="PRESTAMO" />
+      <End Role="PAGO" EntitySet="PAGO" />
+    </AssociationSet>
+    <FunctionImport Name="usp_DeudaCliente">
+      <Parameter Name="dni" Mode="In" Type="String" />
+      <Parameter Name="deuda" Mode="InOut" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="usp_ListarPagosPendientes" ReturnType="Collection(BancoPeruModel.usp_ListarPagosPendientes_Result)">
+      <Parameter Name="dni" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="usp_ListarPrestamosCliente" ReturnType="Collection(BancoPeruModel.usp_ListarPrestamosCliente_Result)">
+      <Parameter Name="dni" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="uspEmpleadoInsertar">
+      <Parameter Name="dni_emp" Mode="In" Type="String" />
+      <Parameter Name="nom_emp" Mode="In" Type="String" />
+      <Parameter Name="ape_emp" Mode="In" Type="String" />
+      <Parameter Name="tel_emp" Mode="In" Type="String" />
+      <Parameter Name="mail_emp" Mode="In" Type="String" />
+      <Parameter Name="dir_emp" Mode="In" Type="String" />
+      <Parameter Name="sue_emp" Mode="In" Type="Int32" />
+      <Parameter Name="ingreso_emp" Mode="In" Type="DateTime" />
+      <Parameter Name="dep_emp" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="uspPagoEliminar">
+      <Parameter Name="id_pago" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="uspSucursalActualizar">
+      <Parameter Name="id_suc" Mode="In" Type="Int32" />
+      <Parameter Name="nom_suc" Mode="In" Type="String" />
+      <Parameter Name="dir_suc" Mode="In" Type="String" />
+      <Parameter Name="tel_suc" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="vw_Cliente" EntityType="BancoPeruModel.vw_Cliente" />
+    <EntitySet Name="vvw_CUENTACLIENTE" EntityType="BancoPeruModel.vvw_CUENTACLIENTE" />
+    <FunctionImport Name="usp_ConsultaCuenta" ReturnType="Collection(BancoPeruModel.usp_ConsultaCuenta_Result)">
+      <Parameter Name="IdDni" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_CuentaCliente" ReturnType="Collection(BancoPeruModel.usp_CuentaCliente_Result)">
+      <Parameter Name="dni" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="vw_EmpleadoDepartamentoSucursal" EntityType="BancoPeruModel.vw_EmpleadoDepartamentoSucursal" />
+    <FunctionImport Name="usp_PagosPendientes" ReturnType="Collection(BancoPeruModel.usp_PagosPendientes_Result)">
+      <Parameter Name="dni" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="usp_ClienteConsultar" ReturnType="Collection(BancoPeruModel.usp_ClienteConsultar_Result)">
+      <Parameter Name="DniProfesor" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="usp_ListarPagosPendientes_Result">
+    <Property Type="Int32" Name="IdPago" Nullable="false" />
+    <Property Type="DateTime" Name="FechaPago" Nullable="false" />
+    <Property Type="String" Name="DNICliente" Nullable="false" MaxLength="8" />
+    <Property Type="String" Name="Nombres" Nullable="false" MaxLength="201" />
+    <Property Type="Int32" Name="ImportePago" Nullable="false" />
+    <Property Type="String" Name="Estado" Nullable="true" MaxLength="9" />
+  </ComplexType>
+  <ComplexType Name="usp_ListarPrestamosCliente_Result">
+    <Property Type="Int32" Name="idPrestamo" Nullable="false" />
+    <Property Type="DateTime" Name="FechaPrestamo" Nullable="false" />
+    <Property Type="Int32" Name="Importe" Nullable="false" />
+    <Property Type="Decimal" Name="Importetotal" Nullable="true" Precision="14" Scale="2" />
+    <Property Type="String" Name="Estado" Nullable="true" MaxLength="9" />
+  </ComplexType>
+  <EntityType Name="vw_Cliente">
+    <Key>
+      <PropertyRef Name="IdCliente" />
+      <PropertyRef Name="DNICliente" />
+      <PropertyRef Name="NombreCliente" />
+      <PropertyRef Name="ApellidoCliente" />
+      <PropertyRef Name="DireccionCliente" />
+      <PropertyRef Name="NombreCompleto" />
+    </Key>
+    <Property Name="IdCliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DNICliente" Type="String" Nullable="false" MaxLength="8" FixedLength="true" Unicode="false" />
+    <Property Name="NombreCliente" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ApellidoCliente" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DireccionCliente" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="TelefonoCliente" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="EmailCLiente" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NombreCompleto" Type="String" Nullable="false" MaxLength="201" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="vvw_CUENTACLIENTE">
+    <Key>
+      <PropertyRef Name="IdCliente" />
+      <PropertyRef Name="DNICliente" />
+      <PropertyRef Name="NombreCliente" />
+      <PropertyRef Name="ApellidoCliente" />
+      <PropertyRef Name="DireccionCliente" />
+      <PropertyRef Name="CUENTA" />
+    </Key>
+    <Property Name="IdCliente" Type="Int32" Nullable="false" />
+    <Property Name="DNICliente" Type="String" Nullable="false" MaxLength="8" FixedLength="true" Unicode="false" />
+    <Property Name="NombreCliente" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ApellidoCliente" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DireccionCliente" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="TelefonoCliente" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="EmailCLiente" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CUENTA" Type="String" Nullable="false" MaxLength="16" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <ComplexType Name="usp_ConsultaCuenta_Result">
+    <Property Type="String" Name="Nombre" Nullable="false" MaxLength="201" />
+    <Property Type="String" Name="NroCuenta" Nullable="false" MaxLength="16" />
+  </ComplexType>
+  <ComplexType Name="usp_CuentaCliente_Result">
+    <Property Type="String" Name="NombreCliente" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="ApellidoCliente" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="CUENTA" Nullable="false" MaxLength="16" />
+  </ComplexType>
+  <EntityType Name="vw_EmpleadoDepartamentoSucursal">
+    <Key>
+      <PropertyRef Name="NombreEmpleado" />
+      <PropertyRef Name="ApellidoEmplado" />
+      <PropertyRef Name="NombreDepartamento" />
+      <PropertyRef Name="NombreSucursal" />
+      <PropertyRef Name="DNIEmpleado" />
+    </Key>
+    <Property Name="NombreEmpleado" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ApellidoEmplado" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NombreDepartamento" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NombreSucursal" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DNIEmpleado" Type="String" Nullable="false" MaxLength="8" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <ComplexType Name="usp_PagosPendientes_Result">
+    <Property Type="Int32" Name="IdPago" Nullable="false" />
+    <Property Type="Int32" Name="IdPrestamo" Nullable="false" />
+    <Property Type="DateTime" Name="FechaPago" Nullable="false" />
+    <Property Type="String" Name="DNICliente" Nullable="false" MaxLength="8" />
+    <Property Type="String" Name="Nombres" Nullable="false" MaxLength="201" />
+    <Property Type="Int32" Name="ImportePago" Nullable="false" />
+    <Property Type="String" Name="Estado" Nullable="true" MaxLength="9" />
+  </ComplexType>
+  <ComplexType Name="usp_ClienteConsultar_Result">
+    <Property Type="Int32" Name="IdCliente" Nullable="false" />
+    <Property Type="String" Name="DNICliente" Nullable="false" MaxLength="8" />
+    <Property Type="String" Name="Nombre" Nullable="false" MaxLength="201" />
+    <Property Type="String" Name="DireccionCliente" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="TelefonoCliente" Nullable="true" MaxLength="100" />
+  </ComplexType>
+</Schema>

@@ -1,0 +1,706 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BancoPeruModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CLIENTE">
+    <Key>
+      <PropertyRef Name="IdCliente" />
+    </Key>
+    <Property Name="IdCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DNICliente" Type="char" MaxLength="8" Nullable="false" />
+    <Property Name="NombreCliente" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ApellidoCliente" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="DireccionCliente" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="TelefonoCliente" Type="varchar" MaxLength="100" />
+    <Property Name="EmailCLiente" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="CUENTA">
+    <Key>
+      <PropertyRef Name="IdCuenta" />
+    </Key>
+    <Property Name="IdCuenta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NroCuenta" Type="char" MaxLength="16" Nullable="false" />
+    <Property Name="Clave" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="Saldo" Type="int" Nullable="false" />
+    <Property Name="FechaApertura" Type="date" Nullable="false" />
+    <Property Name="FechaCierre" Type="date" />
+    <Property Name="IdCliente" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DEPARTAMENTO">
+    <Key>
+      <PropertyRef Name="IdDepartamento" />
+    </Key>
+    <Property Name="IdDepartamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreDepartamento" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="IdSucursal" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DETALLE_PRESTAMO">
+    <Key>
+      <PropertyRef Name="IdPrestamo" />
+      <PropertyRef Name="IdEmpleado" />
+    </Key>
+    <Property Name="IdPrestamo" Type="int" Nullable="false" />
+    <Property Name="IdEmpleado" Type="int" Nullable="false" />
+    <Property Name="Sucursal" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EMPLEADO">
+    <Key>
+      <PropertyRef Name="IdEmpleado" />
+    </Key>
+    <Property Name="IdEmpleado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DNIEmpleado" Type="char" MaxLength="8" Nullable="false" />
+    <Property Name="NombreEmpleado" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ApellidoEmplado" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="TelefonoEmpleado" Type="varchar" MaxLength="100" />
+    <Property Name="EmailEmpleado" Type="varchar" MaxLength="100" />
+    <Property Name="DireccionEmpleado" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="SueldoEmpleado" Type="int" Nullable="false" />
+    <Property Name="FechaIngreso" Type="date" Nullable="false" />
+    <Property Name="FechaSalida" Type="date" />
+    <Property Name="IdDepartamento" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PAGO">
+    <Key>
+      <PropertyRef Name="IdPago" />
+    </Key>
+    <Property Name="IdPago" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NroCuota" Type="int" Nullable="false" />
+    <Property Name="ImportePago" Type="int" Nullable="false" />
+    <Property Name="FechaPago" Type="date" Nullable="false" />
+    <Property Name="FechaVencimiento" Type="date" Nullable="false" />
+    <Property Name="EstadoPago" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="IdPrestamo" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PRESTAMO">
+    <Key>
+      <PropertyRef Name="IdPrestamo" />
+    </Key>
+    <Property Name="IdPrestamo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Importe" Type="int" Nullable="false" />
+    <Property Name="Cuotas" Type="int" Nullable="false" />
+    <Property Name="FechaPrestamo" Type="date" Nullable="false" />
+    <Property Name="EstadoPrestamo" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="IdCLiente" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SUCURSAL">
+    <Key>
+      <PropertyRef Name="IdSucursal" />
+    </Key>
+    <Property Name="IdSucursal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreSucursal" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="DireccionSucursal" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="TelefonoSucursal" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BancoPeru.dbo.EMPLEADOSPORSUCURSAL' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="EMPLEADOSPORSUCURSAL">
+    <Key>
+      <PropertyRef Name="SUCURSAL" />
+    </Key>
+    <Property Name="CANTIDAD_EMPLEADOS" Type="int" />
+    <Property Name="SUCURSAL" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BancoPeru.dbo.PRESTAMOS' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="PRESTAMOS">
+    <Key>
+      <PropertyRef Name="NombreCliente" />
+      <PropertyRef Name="ApellidoCliente" />
+      <PropertyRef Name="Importe" />
+    </Key>
+    <Property Name="NombreCliente" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ApellidoCliente" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Importe" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BancoPeru.dbo.PUESTOSEMPLEADOS' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="PUESTOSEMPLEADOS">
+    <Key>
+      <PropertyRef Name="DATOS_EMPLEADO" />
+      <PropertyRef Name="NombreDepartamento" />
+      <PropertyRef Name="NombreSucursal" />
+    </Key>
+    <Property Name="DATOS_EMPLEADO" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="NombreDepartamento" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="NombreSucursal" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BancoPeru.dbo.vvw_CUENTACLIENTE' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="vvw_CUENTACLIENTE">
+    <Key>
+      <PropertyRef Name="IdCliente" />
+      <PropertyRef Name="DNICliente" />
+      <PropertyRef Name="NombreCliente" />
+      <PropertyRef Name="ApellidoCliente" />
+      <PropertyRef Name="DireccionCliente" />
+      <PropertyRef Name="CUENTA" />
+    </Key>
+    <Property Name="IdCliente" Type="int" Nullable="false" />
+    <Property Name="DNICliente" Type="char" MaxLength="8" Nullable="false" />
+    <Property Name="NombreCliente" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ApellidoCliente" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="DireccionCliente" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="TelefonoCliente" Type="varchar" MaxLength="100" />
+    <Property Name="EmailCLiente" Type="varchar" MaxLength="100" />
+    <Property Name="CUENTA" Type="char" MaxLength="16" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BancoPeru.dbo.vw_Cliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="vw_Cliente">
+    <Key>
+      <PropertyRef Name="IdCliente" />
+      <PropertyRef Name="DNICliente" />
+      <PropertyRef Name="NombreCliente" />
+      <PropertyRef Name="ApellidoCliente" />
+      <PropertyRef Name="DireccionCliente" />
+      <PropertyRef Name="NombreCompleto" />
+    </Key>
+    <Property Name="IdCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DNICliente" Type="char" MaxLength="8" Nullable="false" />
+    <Property Name="NombreCliente" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ApellidoCliente" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="DireccionCliente" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="TelefonoCliente" Type="varchar" MaxLength="100" />
+    <Property Name="EmailCLiente" Type="varchar" MaxLength="100" />
+    <Property Name="NombreCompleto" Type="varchar" MaxLength="201" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BancoPeru.dbo.vw_EmpleadoDepartamentoSucursal' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="vw_EmpleadoDepartamentoSucursal">
+    <Key>
+      <PropertyRef Name="DNIEmpleado" />
+      <PropertyRef Name="NombreEmpleado" />
+      <PropertyRef Name="ApellidoEmplado" />
+      <PropertyRef Name="NombreDepartamento" />
+      <PropertyRef Name="NombreSucursal" />
+    </Key>
+    <Property Name="DNIEmpleado" Type="char" MaxLength="8" Nullable="false" />
+    <Property Name="NombreEmpleado" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ApellidoEmplado" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="NombreDepartamento" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="NombreSucursal" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BancoPeru.dbo.vw_VistaPagos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="vw_VistaPagos">
+    <Key>
+      <PropertyRef Name="IdPago" />
+      <PropertyRef Name="IdPrestamo" />
+      <PropertyRef Name="IdCliente" />
+      <PropertyRef Name="ImportePago" />
+      <PropertyRef Name="NroCuota" />
+      <PropertyRef Name="FechaPago" />
+      <PropertyRef Name="Nombres" />
+      <PropertyRef Name="DNICliente" />
+      <PropertyRef Name="EstadoPago" />
+    </Key>
+    <Property Name="IdPago" Type="int" Nullable="false" />
+    <Property Name="IdPrestamo" Type="int" Nullable="false" />
+    <Property Name="IdCliente" Type="int" Nullable="false" />
+    <Property Name="ImportePago" Type="int" Nullable="false" />
+    <Property Name="NroCuota" Type="int" Nullable="false" />
+    <Property Name="FechaPago" Type="date" Nullable="false" />
+    <Property Name="Nombres" Type="varchar" MaxLength="201" Nullable="false" />
+    <Property Name="DNICliente" Type="char" MaxLength="8" Nullable="false" />
+    <Property Name="EstadoPago" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="Estado" Type="varchar" MaxLength="9" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BancoPeru.dbo.vw_VistaPrestamos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="vw_VistaPrestamos">
+    <Key>
+      <PropertyRef Name="IdPrestamo" />
+      <PropertyRef Name="FechaPrestamo" />
+      <PropertyRef Name="IdCLiente" />
+      <PropertyRef Name="NombresCliente" />
+      <PropertyRef Name="DNICliente" />
+      <PropertyRef Name="Importe" />
+      <PropertyRef Name="EstadoPrestamo" />
+    </Key>
+    <Property Name="IdPrestamo" Type="int" Nullable="false" />
+    <Property Name="FechaPrestamo" Type="date" Nullable="false" />
+    <Property Name="IdCLiente" Type="int" Nullable="false" />
+    <Property Name="NombresCliente" Type="varchar" MaxLength="201" Nullable="false" />
+    <Property Name="DNICliente" Type="char" MaxLength="8" Nullable="false" />
+    <Property Name="Importe" Type="int" Nullable="false" />
+    <Property Name="Interestotal" Type="numeric" Precision="13" Scale="2" />
+    <Property Name="Importetotal" Type="numeric" Precision="14" Scale="2" />
+    <Property Name="EstadoPrestamo" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="Estado" Type="varchar" MaxLength="9" />
+  </EntityType>
+  <Association Name="FK__CUENTA__IdClient__05D8E0BE">
+    <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+    <End Role="CUENTA" Type="Self.CUENTA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTE">
+        <PropertyRef Name="IdCliente" />
+      </Principal>
+      <Dependent Role="CUENTA">
+        <PropertyRef Name="IdCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <!--Errores durante la generación:
+advertencia 6037: La restricción de clave externa 'FK__CUENTA__IdClient__06CD04F7' se ha omitido en el modelo de almacenamiento. La columna 'IdCliente' de la tabla 'BancoPeruModel.Store.CUENTA' es una clave externa que participa en varias relaciones. No se validará un modelo de entidad de uno a uno, ya que puede existir incoherencia en los datos.
+        <Association Name="FK__CUENTA__IdClient__06CD04F7">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+          <End Role="CUENTA" Type="Self.CUENTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="IdCliente" />
+            </Principal>
+            <Dependent Role="CUENTA">
+              <PropertyRef Name="IdCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>-->
+  <!--Errores durante la generación:
+advertencia 6037: La restricción de clave externa 'FK__CUENTA__IdClient__1BC821DD' se ha omitido en el modelo de almacenamiento. La columna 'IdCliente' de la tabla 'BancoPeruModel.Store.CUENTA' es una clave externa que participa en varias relaciones. No se validará un modelo de entidad de uno a uno, ya que puede existir incoherencia en los datos.
+        <Association Name="FK__CUENTA__IdClient__1BC821DD">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+          <End Role="CUENTA" Type="Self.CUENTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="IdCliente" />
+            </Principal>
+            <Dependent Role="CUENTA">
+              <PropertyRef Name="IdCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>-->
+  <!--Errores durante la generación:
+advertencia 6037: La restricción de clave externa 'FK__CUENTA__IdClient__1CBC4616' se ha omitido en el modelo de almacenamiento. La columna 'IdCliente' de la tabla 'BancoPeruModel.Store.CUENTA' es una clave externa que participa en varias relaciones. No se validará un modelo de entidad de uno a uno, ya que puede existir incoherencia en los datos.
+        <Association Name="FK__CUENTA__IdClient__1CBC4616">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+          <End Role="CUENTA" Type="Self.CUENTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="IdCliente" />
+            </Principal>
+            <Dependent Role="CUENTA">
+              <PropertyRef Name="IdCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>-->
+  <!--Errores durante la generación:
+advertencia 6037: La restricción de clave externa 'FK__CUENTA__IdClient__571DF1D5' se ha omitido en el modelo de almacenamiento. La columna 'IdCliente' de la tabla 'BancoPeruModel.Store.CUENTA' es una clave externa que participa en varias relaciones. No se validará un modelo de entidad de uno a uno, ya que puede existir incoherencia en los datos.
+        <Association Name="FK__CUENTA__IdClient__571DF1D5">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+          <End Role="CUENTA" Type="Self.CUENTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="IdCliente" />
+            </Principal>
+            <Dependent Role="CUENTA">
+              <PropertyRef Name="IdCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>-->
+  <!--Errores durante la generación:
+advertencia 6037: La restricción de clave externa 'FK__CUENTA__IdClient__5BE2A6F2' se ha omitido en el modelo de almacenamiento. La columna 'IdCliente' de la tabla 'BancoPeruModel.Store.CUENTA' es una clave externa que participa en varias relaciones. No se validará un modelo de entidad de uno a uno, ya que puede existir incoherencia en los datos.
+        <Association Name="FK__CUENTA__IdClient__5BE2A6F2">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+          <End Role="CUENTA" Type="Self.CUENTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="IdCliente" />
+            </Principal>
+            <Dependent Role="CUENTA">
+              <PropertyRef Name="IdCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>-->
+  <Association Name="FK__DEPARTAME__IdSuc__07C12930">
+    <End Role="SUCURSAL" Type="Self.SUCURSAL" Multiplicity="1" />
+    <End Role="DEPARTAMENTO" Type="Self.DEPARTAMENTO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SUCURSAL">
+        <PropertyRef Name="IdSucursal" />
+      </Principal>
+      <Dependent Role="DEPARTAMENTO">
+        <PropertyRef Name="IdSucursal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <!--Errores durante la generación:
+advertencia 6037: La restricción de clave externa 'FK__DEPARTAME__IdSuc__1DB06A4F' se ha omitido en el modelo de almacenamiento. La columna 'IdSucursal' de la tabla 'BancoPeruModel.Store.DEPARTAMENTO' es una clave externa que participa en varias relaciones. No se validará un modelo de entidad de uno a uno, ya que puede existir incoherencia en los datos.
+        <Association Name="FK__DEPARTAME__IdSuc__1DB06A4F">
+          <End Role="SUCURSAL" Type="Self.SUCURSAL" Multiplicity="1" />
+          <End Role="DEPARTAMENTO" Type="Self.DEPARTAMENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUCURSAL">
+              <PropertyRef Name="IdSucursal" />
+            </Principal>
+            <Dependent Role="DEPARTAMENTO">
+              <PropertyRef Name="IdSucursal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>-->
+  <!--Errores durante la generación:
+advertencia 6037: La restricción de clave externa 'FK__DEPARTAME__IdSuc__5AEE82B9' se ha omitido en el modelo de almacenamiento. La columna 'IdSucursal' de la tabla 'BancoPeruModel.Store.DEPARTAMENTO' es una clave externa que participa en varias relaciones. No se validará un modelo de entidad de uno a uno, ya que puede existir incoherencia en los datos.
+        <Association Name="FK__DEPARTAME__IdSuc__5AEE82B9">
+          <End Role="SUCURSAL" Type="Self.SUCURSAL" Multiplicity="1" />
+          <End Role="DEPARTAMENTO" Type="Self.DEPARTAMENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUCURSAL">
+              <PropertyRef Name="IdSucursal" />
+            </Principal>
+            <Dependent Role="DEPARTAMENTO">
+              <PropertyRef Name="IdSucursal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>-->
+  <Association Name="FK__DETALLE_P__IdEmp__08B54D69">
+    <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="1" />
+    <End Role="DETALLE_PRESTAMO" Type="Self.DETALLE_PRESTAMO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLEADO">
+        <PropertyRef Name="IdEmpleado" />
+      </Principal>
+      <Dependent Role="DETALLE_PRESTAMO">
+        <PropertyRef Name="IdEmpleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <!--Errores durante la generación:
+advertencia 6037: La restricción de clave externa 'FK__DETALLE_P__IdEmp__1EA48E88' se ha omitido en el modelo de almacenamiento. La columna 'IdEmpleado' de la tabla 'BancoPeruModel.Store.DETALLE_PRESTAMO' es una clave externa que participa en varias relaciones. No se validará un modelo de entidad de uno a uno, ya que puede existir incoherencia en los datos.
+        <Association Name="FK__DETALLE_P__IdEmp__1EA48E88">
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="1" />
+          <End Role="DETALLE_PRESTAMO" Type="Self.DETALLE_PRESTAMO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLEADO">
+              <PropertyRef Name="IdEmpleado" />
+            </Principal>
+            <Dependent Role="DETALLE_PRESTAMO">
+              <PropertyRef Name="IdEmpleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>-->
+  <!--Errores durante la generación:
+advertencia 6037: La restricción de clave externa 'FK__DETALLE_P__IdEmp__5DCAEF64' se ha omitido en el modelo de almacenamiento. La columna 'IdEmpleado' de la tabla 'BancoPeruModel.Store.DETALLE_PRESTAMO' es una clave externa que participa en varias relaciones. No se validará un modelo de entidad de uno a uno, ya que puede existir incoherencia en los datos.
+        <Association Name="FK__DETALLE_P__IdEmp__5DCAEF64">
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="1" />
+          <End Role="DETALLE_PRESTAMO" Type="Self.DETALLE_PRESTAMO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLEADO">
+              <PropertyRef Name="IdEmpleado" />
+            </Principal>
+            <Dependent Role="DETALLE_PRESTAMO">
+              <PropertyRef Name="IdEmpleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>-->
+  <Association Name="FK__DETALLE_P__IdPre__09A971A2">
+    <End Role="PRESTAMO" Type="Self.PRESTAMO" Multiplicity="1" />
+    <End Role="DETALLE_PRESTAMO" Type="Self.DETALLE_PRESTAMO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRESTAMO">
+        <PropertyRef Name="IdPrestamo" />
+      </Principal>
+      <Dependent Role="DETALLE_PRESTAMO">
+        <PropertyRef Name="IdPrestamo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <!--Errores durante la generación:
+advertencia 6037: La restricción de clave externa 'FK__DETALLE_P__IdPre__1F98B2C1' se ha omitido en el modelo de almacenamiento. La columna 'IdPrestamo' de la tabla 'BancoPeruModel.Store.DETALLE_PRESTAMO' es una clave externa que participa en varias relaciones. No se validará un modelo de entidad de uno a uno, ya que puede existir incoherencia en los datos.
+        <Association Name="FK__DETALLE_P__IdPre__1F98B2C1">
+          <End Role="PRESTAMO" Type="Self.PRESTAMO" Multiplicity="1" />
+          <End Role="DETALLE_PRESTAMO" Type="Self.DETALLE_PRESTAMO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRESTAMO">
+              <PropertyRef Name="IdPrestamo" />
+            </Principal>
+            <Dependent Role="DETALLE_PRESTAMO">
+              <PropertyRef Name="IdPrestamo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>-->
+  <!--Errores durante la generación:
+advertencia 6037: La restricción de clave externa 'FK__DETALLE_P__IdPre__5CD6CB2B' se ha omitido en el modelo de almacenamiento. La columna 'IdPrestamo' de la tabla 'BancoPeruModel.Store.DETALLE_PRESTAMO' es una clave externa que participa en varias relaciones. No se validará un modelo de entidad de uno a uno, ya que puede existir incoherencia en los datos.
+        <Association Name="FK__DETALLE_P__IdPre__5CD6CB2B">
+          <End Role="PRESTAMO" Type="Self.PRESTAMO" Multiplicity="1" />
+          <End Role="DETALLE_PRESTAMO" Type="Self.DETALLE_PRESTAMO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRESTAMO">
+              <PropertyRef Name="IdPrestamo" />
+            </Principal>
+            <Dependent Role="DETALLE_PRESTAMO">
+              <PropertyRef Name="IdPrestamo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>-->
+  <Association Name="FK__EMPLEADO__IdDepa__0A9D95DB">
+    <End Role="DEPARTAMENTO" Type="Self.DEPARTAMENTO" Multiplicity="1" />
+    <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEPARTAMENTO">
+        <PropertyRef Name="IdDepartamento" />
+      </Principal>
+      <Dependent Role="EMPLEADO">
+        <PropertyRef Name="IdDepartamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <!--Errores durante la generación:
+advertencia 6037: La restricción de clave externa 'FK__EMPLEADO__IdDepa__208CD6FA' se ha omitido en el modelo de almacenamiento. La columna 'IdDepartamento' de la tabla 'BancoPeruModel.Store.EMPLEADO' es una clave externa que participa en varias relaciones. No se validará un modelo de entidad de uno a uno, ya que puede existir incoherencia en los datos.
+        <Association Name="FK__EMPLEADO__IdDepa__208CD6FA">
+          <End Role="DEPARTAMENTO" Type="Self.DEPARTAMENTO" Multiplicity="1" />
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DEPARTAMENTO">
+              <PropertyRef Name="IdDepartamento" />
+            </Principal>
+            <Dependent Role="EMPLEADO">
+              <PropertyRef Name="IdDepartamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>-->
+  <!--Errores durante la generación:
+advertencia 6037: La restricción de clave externa 'FK__EMPLEADO__IdDepa__59FA5E80' se ha omitido en el modelo de almacenamiento. La columna 'IdDepartamento' de la tabla 'BancoPeruModel.Store.EMPLEADO' es una clave externa que participa en varias relaciones. No se validará un modelo de entidad de uno a uno, ya que puede existir incoherencia en los datos.
+        <Association Name="FK__EMPLEADO__IdDepa__59FA5E80">
+          <End Role="DEPARTAMENTO" Type="Self.DEPARTAMENTO" Multiplicity="1" />
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DEPARTAMENTO">
+              <PropertyRef Name="IdDepartamento" />
+            </Principal>
+            <Dependent Role="EMPLEADO">
+              <PropertyRef Name="IdDepartamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>-->
+  <Association Name="FK__PAGO__IdPrestamo__0B91BA14">
+    <End Role="PRESTAMO" Type="Self.PRESTAMO" Multiplicity="1" />
+    <End Role="PAGO" Type="Self.PAGO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRESTAMO">
+        <PropertyRef Name="IdPrestamo" />
+      </Principal>
+      <Dependent Role="PAGO">
+        <PropertyRef Name="IdPrestamo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <!--Errores durante la generación:
+advertencia 6037: La restricción de clave externa 'FK__PAGO__IdPrestamo__2180FB33' se ha omitido en el modelo de almacenamiento. La columna 'IdPrestamo' de la tabla 'BancoPeruModel.Store.PAGO' es una clave externa que participa en varias relaciones. No se validará un modelo de entidad de uno a uno, ya que puede existir incoherencia en los datos.
+        <Association Name="FK__PAGO__IdPrestamo__2180FB33">
+          <End Role="PRESTAMO" Type="Self.PRESTAMO" Multiplicity="1" />
+          <End Role="PAGO" Type="Self.PAGO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRESTAMO">
+              <PropertyRef Name="IdPrestamo" />
+            </Principal>
+            <Dependent Role="PAGO">
+              <PropertyRef Name="IdPrestamo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>-->
+  <!--Errores durante la generación:
+advertencia 6037: La restricción de clave externa 'FK__PAGO__IdPrestamo__5812160E' se ha omitido en el modelo de almacenamiento. La columna 'IdPrestamo' de la tabla 'BancoPeruModel.Store.PAGO' es una clave externa que participa en varias relaciones. No se validará un modelo de entidad de uno a uno, ya que puede existir incoherencia en los datos.
+        <Association Name="FK__PAGO__IdPrestamo__5812160E">
+          <End Role="PRESTAMO" Type="Self.PRESTAMO" Multiplicity="1" />
+          <End Role="PAGO" Type="Self.PAGO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRESTAMO">
+              <PropertyRef Name="IdPrestamo" />
+            </Principal>
+            <Dependent Role="PAGO">
+              <PropertyRef Name="IdPrestamo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>-->
+  <Association Name="FK__PRESTAMO__IdCLie__0C85DE4D">
+    <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+    <End Role="PRESTAMO" Type="Self.PRESTAMO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTE">
+        <PropertyRef Name="IdCliente" />
+      </Principal>
+      <Dependent Role="PRESTAMO">
+        <PropertyRef Name="IdCLiente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <!--Errores durante la generación:
+advertencia 6037: La restricción de clave externa 'FK__PRESTAMO__IdCLie__22751F6C' se ha omitido en el modelo de almacenamiento. La columna 'IdCLiente' de la tabla 'BancoPeruModel.Store.PRESTAMO' es una clave externa que participa en varias relaciones. No se validará un modelo de entidad de uno a uno, ya que puede existir incoherencia en los datos.
+        <Association Name="FK__PRESTAMO__IdCLie__22751F6C">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+          <End Role="PRESTAMO" Type="Self.PRESTAMO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="IdCliente" />
+            </Principal>
+            <Dependent Role="PRESTAMO">
+              <PropertyRef Name="IdCLiente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>-->
+  <!--Errores durante la generación:
+advertencia 6037: La restricción de clave externa 'FK__PRESTAMO__IdCLie__59063A47' se ha omitido en el modelo de almacenamiento. La columna 'IdCLiente' de la tabla 'BancoPeruModel.Store.PRESTAMO' es una clave externa que participa en varias relaciones. No se validará un modelo de entidad de uno a uno, ya que puede existir incoherencia en los datos.
+        <Association Name="FK__PRESTAMO__IdCLie__59063A47">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+          <End Role="PRESTAMO" Type="Self.PRESTAMO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="IdCliente" />
+            </Principal>
+            <Dependent Role="PRESTAMO">
+              <PropertyRef Name="IdCLiente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>-->
+  <Function Name="usp_ClienteConsultar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DniProfesor" Type="char" Mode="In" />
+  </Function>
+  <Function Name="usp_CuentaCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="dni" Type="char" Mode="In" />
+  </Function>
+  <Function Name="usp_DeudaCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="dni" Type="char" Mode="In" />
+    <Parameter Name="deuda" Type="money" Mode="InOut" />
+  </Function>
+  <Function Name="usp_ListarPrestamosCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="dni" Type="char" Mode="In" />
+  </Function>
+  <Function Name="usp_PagosPendientes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="dni" Type="char" Mode="In" />
+  </Function>
+  <Function Name="uspEmpleadoInsertar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="dni_emp" Type="char" Mode="In" />
+    <Parameter Name="nom_emp" Type="varchar" Mode="In" />
+    <Parameter Name="ape_emp" Type="varchar" Mode="In" />
+    <Parameter Name="tel_emp" Type="varchar" Mode="In" />
+    <Parameter Name="mail_emp" Type="varchar" Mode="In" />
+    <Parameter Name="dir_emp" Type="varchar" Mode="In" />
+    <Parameter Name="sue_emp" Type="int" Mode="In" />
+    <Parameter Name="ingreso_emp" Type="date" Mode="In" />
+    <Parameter Name="dep_emp" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspPagoEliminar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_pago" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspSucursalActualizar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_suc" Type="int" Mode="In" />
+    <Parameter Name="nom_suc" Type="varchar" Mode="In" />
+    <Parameter Name="dir_suc" Type="varchar" Mode="In" />
+    <Parameter Name="tel_suc" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="BancoPeruModelStoreContainer">
+    <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CUENTA" EntityType="Self.CUENTA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DEPARTAMENTO" EntityType="Self.DEPARTAMENTO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DETALLE_PRESTAMO" EntityType="Self.DETALLE_PRESTAMO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EMPLEADO" EntityType="Self.EMPLEADO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PAGO" EntityType="Self.PAGO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PRESTAMO" EntityType="Self.PRESTAMO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SUCURSAL" EntityType="Self.SUCURSAL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EMPLEADOSPORSUCURSAL" EntityType="Self.EMPLEADOSPORSUCURSAL" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [EMPLEADOSPORSUCURSAL].[CANTIDAD_EMPLEADOS] AS [CANTIDAD_EMPLEADOS], 
+    [EMPLEADOSPORSUCURSAL].[SUCURSAL] AS [SUCURSAL]
+    FROM [dbo].[EMPLEADOSPORSUCURSAL] AS [EMPLEADOSPORSUCURSAL]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="PRESTAMOS" EntityType="Self.PRESTAMOS" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [PRESTAMOS].[NombreCliente] AS [NombreCliente], 
+    [PRESTAMOS].[ApellidoCliente] AS [ApellidoCliente], 
+    [PRESTAMOS].[Importe] AS [Importe]
+    FROM [dbo].[PRESTAMOS] AS [PRESTAMOS]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="PUESTOSEMPLEADOS" EntityType="Self.PUESTOSEMPLEADOS" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [PUESTOSEMPLEADOS].[DATOS_EMPLEADO] AS [DATOS_EMPLEADO], 
+    [PUESTOSEMPLEADOS].[NombreDepartamento] AS [NombreDepartamento], 
+    [PUESTOSEMPLEADOS].[NombreSucursal] AS [NombreSucursal]
+    FROM [dbo].[PUESTOSEMPLEADOS] AS [PUESTOSEMPLEADOS]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vvw_CUENTACLIENTE" EntityType="Self.vvw_CUENTACLIENTE" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vvw_CUENTACLIENTE].[IdCliente] AS [IdCliente], 
+    [vvw_CUENTACLIENTE].[DNICliente] AS [DNICliente], 
+    [vvw_CUENTACLIENTE].[NombreCliente] AS [NombreCliente], 
+    [vvw_CUENTACLIENTE].[ApellidoCliente] AS [ApellidoCliente], 
+    [vvw_CUENTACLIENTE].[DireccionCliente] AS [DireccionCliente], 
+    [vvw_CUENTACLIENTE].[TelefonoCliente] AS [TelefonoCliente], 
+    [vvw_CUENTACLIENTE].[EmailCLiente] AS [EmailCLiente], 
+    [vvw_CUENTACLIENTE].[CUENTA] AS [CUENTA]
+    FROM [dbo].[vvw_CUENTACLIENTE] AS [vvw_CUENTACLIENTE]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_Cliente" EntityType="Self.vw_Cliente" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_Cliente].[IdCliente] AS [IdCliente], 
+    [vw_Cliente].[DNICliente] AS [DNICliente], 
+    [vw_Cliente].[NombreCliente] AS [NombreCliente], 
+    [vw_Cliente].[ApellidoCliente] AS [ApellidoCliente], 
+    [vw_Cliente].[DireccionCliente] AS [DireccionCliente], 
+    [vw_Cliente].[TelefonoCliente] AS [TelefonoCliente], 
+    [vw_Cliente].[EmailCLiente] AS [EmailCLiente], 
+    [vw_Cliente].[NombreCompleto] AS [NombreCompleto]
+    FROM [dbo].[vw_Cliente] AS [vw_Cliente]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_EmpleadoDepartamentoSucursal" EntityType="Self.vw_EmpleadoDepartamentoSucursal" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_EmpleadoDepartamentoSucursal].[DNIEmpleado] AS [DNIEmpleado], 
+    [vw_EmpleadoDepartamentoSucursal].[NombreEmpleado] AS [NombreEmpleado], 
+    [vw_EmpleadoDepartamentoSucursal].[ApellidoEmplado] AS [ApellidoEmplado], 
+    [vw_EmpleadoDepartamentoSucursal].[NombreDepartamento] AS [NombreDepartamento], 
+    [vw_EmpleadoDepartamentoSucursal].[NombreSucursal] AS [NombreSucursal]
+    FROM [dbo].[vw_EmpleadoDepartamentoSucursal] AS [vw_EmpleadoDepartamentoSucursal]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_VistaPagos" EntityType="Self.vw_VistaPagos" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_VistaPagos].[IdPago] AS [IdPago], 
+    [vw_VistaPagos].[IdPrestamo] AS [IdPrestamo], 
+    [vw_VistaPagos].[IdCliente] AS [IdCliente], 
+    [vw_VistaPagos].[ImportePago] AS [ImportePago], 
+    [vw_VistaPagos].[NroCuota] AS [NroCuota], 
+    [vw_VistaPagos].[FechaPago] AS [FechaPago], 
+    [vw_VistaPagos].[Nombres] AS [Nombres], 
+    [vw_VistaPagos].[DNICliente] AS [DNICliente], 
+    [vw_VistaPagos].[EstadoPago] AS [EstadoPago], 
+    [vw_VistaPagos].[Estado] AS [Estado]
+    FROM [dbo].[vw_VistaPagos] AS [vw_VistaPagos]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_VistaPrestamos" EntityType="Self.vw_VistaPrestamos" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_VistaPrestamos].[IdPrestamo] AS [IdPrestamo], 
+    [vw_VistaPrestamos].[FechaPrestamo] AS [FechaPrestamo], 
+    [vw_VistaPrestamos].[IdCLiente] AS [IdCLiente], 
+    [vw_VistaPrestamos].[NombresCliente] AS [NombresCliente], 
+    [vw_VistaPrestamos].[DNICliente] AS [DNICliente], 
+    [vw_VistaPrestamos].[Importe] AS [Importe], 
+    [vw_VistaPrestamos].[Interestotal] AS [Interestotal], 
+    [vw_VistaPrestamos].[Importetotal] AS [Importetotal], 
+    [vw_VistaPrestamos].[EstadoPrestamo] AS [EstadoPrestamo], 
+    [vw_VistaPrestamos].[Estado] AS [Estado]
+    FROM [dbo].[vw_VistaPrestamos] AS [vw_VistaPrestamos]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__CUENTA__IdClient__05D8E0BE" Association="Self.FK__CUENTA__IdClient__05D8E0BE">
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+      <End Role="CUENTA" EntitySet="CUENTA" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DEPARTAME__IdSuc__07C12930" Association="Self.FK__DEPARTAME__IdSuc__07C12930">
+      <End Role="SUCURSAL" EntitySet="SUCURSAL" />
+      <End Role="DEPARTAMENTO" EntitySet="DEPARTAMENTO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DETALLE_P__IdEmp__08B54D69" Association="Self.FK__DETALLE_P__IdEmp__08B54D69">
+      <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+      <End Role="DETALLE_PRESTAMO" EntitySet="DETALLE_PRESTAMO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DETALLE_P__IdPre__09A971A2" Association="Self.FK__DETALLE_P__IdPre__09A971A2">
+      <End Role="PRESTAMO" EntitySet="PRESTAMO" />
+      <End Role="DETALLE_PRESTAMO" EntitySet="DETALLE_PRESTAMO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EMPLEADO__IdDepa__0A9D95DB" Association="Self.FK__EMPLEADO__IdDepa__0A9D95DB">
+      <End Role="DEPARTAMENTO" EntitySet="DEPARTAMENTO" />
+      <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PAGO__IdPrestamo__0B91BA14" Association="Self.FK__PAGO__IdPrestamo__0B91BA14">
+      <End Role="PRESTAMO" EntitySet="PRESTAMO" />
+      <End Role="PAGO" EntitySet="PAGO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PRESTAMO__IdCLie__0C85DE4D" Association="Self.FK__PRESTAMO__IdCLie__0C85DE4D">
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+      <End Role="PRESTAMO" EntitySet="PRESTAMO" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

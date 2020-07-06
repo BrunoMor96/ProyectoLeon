@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServiciosCliente" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/ServiciosBancoPeru" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServiciosCliente_GetAllClienteLINQ_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllClienteLINQ" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosCliente_GetAllClienteLINQ_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllClienteLINQResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosCliente_ListarNombresClienteLINQ_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarNombresClienteLINQ" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosCliente_ListarNombresClienteLINQ_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarNombresClienteLINQResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosCliente_InsertCliente_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertCliente" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosCliente_InsertCliente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosCliente_UpdateCliente_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCliente" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosCliente_UpdateCliente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosCliente_DeleteCliente_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCliente" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosCliente_DeleteCliente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosCliente_BuscarCliente_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarCliente" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosCliente_BuscarCliente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosCliente_GetCliente_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCliente" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosCliente_GetCliente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosCliente_GetAllCuentaCliente_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCuentaCliente" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosCliente_GetAllCuentaCliente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCuentaClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosCliente_CalcularDeudaCliente_InputMessage">
+    <wsdl:part name="parameters" element="tns:CalcularDeudaCliente" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosCliente_CalcularDeudaCliente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CalcularDeudaClienteResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IServiciosCliente">
+    <wsdl:operation name="GetAllClienteLINQ">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiciosCliente/GetAllClienteLINQ" message="tns:IServiciosCliente_GetAllClienteLINQ_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiciosCliente/GetAllClienteLINQResponse" message="tns:IServiciosCliente_GetAllClienteLINQ_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarNombresClienteLINQ">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiciosCliente/ListarNombresClienteLINQ" message="tns:IServiciosCliente_ListarNombresClienteLINQ_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiciosCliente/ListarNombresClienteLINQResponse" message="tns:IServiciosCliente_ListarNombresClienteLINQ_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertCliente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiciosCliente/InsertCliente" message="tns:IServiciosCliente_InsertCliente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiciosCliente/InsertClienteResponse" message="tns:IServiciosCliente_InsertCliente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCliente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiciosCliente/UpdateCliente" message="tns:IServiciosCliente_UpdateCliente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiciosCliente/UpdateClienteResponse" message="tns:IServiciosCliente_UpdateCliente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCliente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiciosCliente/DeleteCliente" message="tns:IServiciosCliente_DeleteCliente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiciosCliente/DeleteClienteResponse" message="tns:IServiciosCliente_DeleteCliente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarCliente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiciosCliente/BuscarCliente" message="tns:IServiciosCliente_BuscarCliente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiciosCliente/BuscarClienteResponse" message="tns:IServiciosCliente_BuscarCliente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCliente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiciosCliente/GetCliente" message="tns:IServiciosCliente_GetCliente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiciosCliente/GetClienteResponse" message="tns:IServiciosCliente_GetCliente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCuentaCliente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiciosCliente/GetAllCuentaCliente" message="tns:IServiciosCliente_GetAllCuentaCliente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiciosCliente/GetAllCuentaClienteResponse" message="tns:IServiciosCliente_GetAllCuentaCliente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CalcularDeudaCliente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiciosCliente/CalcularDeudaCliente" message="tns:IServiciosCliente_CalcularDeudaCliente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiciosCliente/CalcularDeudaClienteResponse" message="tns:IServiciosCliente_CalcularDeudaCliente_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IServiciosCliente" type="tns:IServiciosCliente">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllClienteLINQ">
+      <soap:operation soapAction="http://tempuri.org/IServiciosCliente/GetAllClienteLINQ" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarNombresClienteLINQ">
+      <soap:operation soapAction="http://tempuri.org/IServiciosCliente/ListarNombresClienteLINQ" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertCliente">
+      <soap:operation soapAction="http://tempuri.org/IServiciosCliente/InsertCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCliente">
+      <soap:operation soapAction="http://tempuri.org/IServiciosCliente/UpdateCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCliente">
+      <soap:operation soapAction="http://tempuri.org/IServiciosCliente/DeleteCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarCliente">
+      <soap:operation soapAction="http://tempuri.org/IServiciosCliente/BuscarCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCliente">
+      <soap:operation soapAction="http://tempuri.org/IServiciosCliente/GetCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCuentaCliente">
+      <soap:operation soapAction="http://tempuri.org/IServiciosCliente/GetAllCuentaCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalcularDeudaCliente">
+      <soap:operation soapAction="http://tempuri.org/IServiciosCliente/CalcularDeudaCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiciosCliente">
+    <wsdl:port name="BasicHttpBinding_IServiciosCliente" binding="tns:BasicHttpBinding_IServiciosCliente">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/ServiciosBancoPeru/ServiciosCliente/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

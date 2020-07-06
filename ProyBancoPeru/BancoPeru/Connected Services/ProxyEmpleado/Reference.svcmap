@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a32b259d-6b1b-4e5a-b145-99cc6cd5e68a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/ServiciosBancoPeru/ServiciosEmpleado/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="3851d360-52f5-4584-a9d8-6e7fbe611e62" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/ServiciosBancoPeru/ServiciosEmpleado/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="0fffd171-cccc-479c-a5c6-4409a09a473c" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/ServiciosBancoPeru/ServiciosEmpleado/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="ab159f4e-0ecb-4475-a7d1-67d2768beb33" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/ServiciosBancoPeru/ServiciosEmpleado/mex" />
+    <MetadataFile FileName="ServiciosBancoPeru.xsd" MetadataType="Schema" ID="150ed44a-7b5d-4d54-b710-9983dfeff7e4" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/ServiciosBancoPeru/ServiciosEmpleado/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

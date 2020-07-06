@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BancoPeruModelStoreContainer" CdmEntityContainer="BancoPeruEntitie">
+    <EntitySetMapping Name="CLIENTE">
+      <EntityTypeMapping TypeName="BancoPeruModel.CLIENTE">
+        <MappingFragment StoreEntitySet="CLIENTE">
+          <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+          <ScalarProperty Name="DNICliente" ColumnName="DNICliente" />
+          <ScalarProperty Name="NombreCliente" ColumnName="NombreCliente" />
+          <ScalarProperty Name="ApellidoCliente" ColumnName="ApellidoCliente" />
+          <ScalarProperty Name="DireccionCliente" ColumnName="DireccionCliente" />
+          <ScalarProperty Name="TelefonoCliente" ColumnName="TelefonoCliente" />
+          <ScalarProperty Name="EmailCLiente" ColumnName="EmailCLiente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CUENTA">
+      <EntityTypeMapping TypeName="BancoPeruModel.CUENTA">
+        <MappingFragment StoreEntitySet="CUENTA">
+          <ScalarProperty Name="IdCuenta" ColumnName="IdCuenta" />
+          <ScalarProperty Name="NroCuenta" ColumnName="NroCuenta" />
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+          <ScalarProperty Name="FechaApertura" ColumnName="FechaApertura" />
+          <ScalarProperty Name="FechaCierre" ColumnName="FechaCierre" />
+          <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DEPARTAMENTO">
+      <EntityTypeMapping TypeName="BancoPeruModel.DEPARTAMENTO">
+        <MappingFragment StoreEntitySet="DEPARTAMENTO">
+          <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
+          <ScalarProperty Name="NombreDepartamento" ColumnName="NombreDepartamento" />
+          <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DETALLE_PRESTAMO">
+      <EntityTypeMapping TypeName="BancoPeruModel.DETALLE_PRESTAMO">
+        <MappingFragment StoreEntitySet="DETALLE_PRESTAMO">
+          <ScalarProperty Name="IdPrestamo" ColumnName="IdPrestamo" />
+          <ScalarProperty Name="IdEmpleado" ColumnName="IdEmpleado" />
+          <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EMPLEADO">
+      <EntityTypeMapping TypeName="BancoPeruModel.EMPLEADO">
+        <MappingFragment StoreEntitySet="EMPLEADO">
+          <ScalarProperty Name="IdEmpleado" ColumnName="IdEmpleado" />
+          <ScalarProperty Name="DNIEmpleado" ColumnName="DNIEmpleado" />
+          <ScalarProperty Name="NombreEmpleado" ColumnName="NombreEmpleado" />
+          <ScalarProperty Name="ApellidoEmplado" ColumnName="ApellidoEmplado" />
+          <ScalarProperty Name="TelefonoEmpleado" ColumnName="TelefonoEmpleado" />
+          <ScalarProperty Name="EmailEmpleado" ColumnName="EmailEmpleado" />
+          <ScalarProperty Name="DireccionEmpleado" ColumnName="DireccionEmpleado" />
+          <ScalarProperty Name="SueldoEmpleado" ColumnName="SueldoEmpleado" />
+          <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+          <ScalarProperty Name="FechaSalida" ColumnName="FechaSalida" />
+          <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PAGO">
+      <EntityTypeMapping TypeName="BancoPeruModel.PAGO">
+        <MappingFragment StoreEntitySet="PAGO">
+          <ScalarProperty Name="IdPago" ColumnName="IdPago" />
+          <ScalarProperty Name="NroCuota" ColumnName="NroCuota" />
+          <ScalarProperty Name="ImportePago" ColumnName="ImportePago" />
+          <ScalarProperty Name="FechaPago" ColumnName="FechaPago" />
+          <ScalarProperty Name="FechaVencimiento" ColumnName="FechaVencimiento" />
+          <ScalarProperty Name="EstadoPago" ColumnName="EstadoPago" />
+          <ScalarProperty Name="IdPrestamo" ColumnName="IdPrestamo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PRESTAMO">
+      <EntityTypeMapping TypeName="BancoPeruModel.PRESTAMO">
+        <MappingFragment StoreEntitySet="PRESTAMO">
+          <ScalarProperty Name="IdPrestamo" ColumnName="IdPrestamo" />
+          <ScalarProperty Name="Importe" ColumnName="Importe" />
+          <ScalarProperty Name="Cuotas" ColumnName="Cuotas" />
+          <ScalarProperty Name="FechaPrestamo" ColumnName="FechaPrestamo" />
+          <ScalarProperty Name="EstadoPrestamo" ColumnName="EstadoPrestamo" />
+          <ScalarProperty Name="IdCLiente" ColumnName="IdCLiente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SUCURSAL">
+      <EntityTypeMapping TypeName="BancoPeruModel.SUCURSAL">
+        <MappingFragment StoreEntitySet="SUCURSAL">
+          <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+          <ScalarProperty Name="NombreSucursal" ColumnName="NombreSucursal" />
+          <ScalarProperty Name="DireccionSucursal" ColumnName="DireccionSucursal" />
+          <ScalarProperty Name="TelefonoSucursal" ColumnName="TelefonoSucursal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EMPLEADOSPORSUCURSAL">
+      <EntityTypeMapping TypeName="BancoPeruModel.EMPLEADOSPORSUCURSAL">
+        <MappingFragment StoreEntitySet="EMPLEADOSPORSUCURSAL">
+          <ScalarProperty Name="CANTIDAD_EMPLEADOS" ColumnName="CANTIDAD_EMPLEADOS" />
+          <ScalarProperty Name="SUCURSAL" ColumnName="SUCURSAL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PRESTAMOS">
+      <EntityTypeMapping TypeName="BancoPeruModel.PRESTAMOS">
+        <MappingFragment StoreEntitySet="PRESTAMOS">
+          <ScalarProperty Name="NombreCliente" ColumnName="NombreCliente" />
+          <ScalarProperty Name="ApellidoCliente" ColumnName="ApellidoCliente" />
+          <ScalarProperty Name="Importe" ColumnName="Importe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PUESTOSEMPLEADOS">
+      <EntityTypeMapping TypeName="BancoPeruModel.PUESTOSEMPLEADOS">
+        <MappingFragment StoreEntitySet="PUESTOSEMPLEADOS">
+          <ScalarProperty Name="DATOS_EMPLEADO" ColumnName="DATOS_EMPLEADO" />
+          <ScalarProperty Name="NombreDepartamento" ColumnName="NombreDepartamento" />
+          <ScalarProperty Name="NombreSucursal" ColumnName="NombreSucursal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vvw_CUENTACLIENTE">
+      <EntityTypeMapping TypeName="BancoPeruModel.vvw_CUENTACLIENTE">
+        <MappingFragment StoreEntitySet="vvw_CUENTACLIENTE">
+          <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+          <ScalarProperty Name="DNICliente" ColumnName="DNICliente" />
+          <ScalarProperty Name="NombreCliente" ColumnName="NombreCliente" />
+          <ScalarProperty Name="ApellidoCliente" ColumnName="ApellidoCliente" />
+          <ScalarProperty Name="DireccionCliente" ColumnName="DireccionCliente" />
+          <ScalarProperty Name="TelefonoCliente" ColumnName="TelefonoCliente" />
+          <ScalarProperty Name="EmailCLiente" ColumnName="EmailCLiente" />
+          <ScalarProperty Name="CUENTA" ColumnName="CUENTA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_Cliente">
+      <EntityTypeMapping TypeName="BancoPeruModel.vw_Cliente">
+        <MappingFragment StoreEntitySet="vw_Cliente">
+          <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+          <ScalarProperty Name="DNICliente" ColumnName="DNICliente" />
+          <ScalarProperty Name="NombreCliente" ColumnName="NombreCliente" />
+          <ScalarProperty Name="ApellidoCliente" ColumnName="ApellidoCliente" />
+          <ScalarProperty Name="DireccionCliente" ColumnName="DireccionCliente" />
+          <ScalarProperty Name="TelefonoCliente" ColumnName="TelefonoCliente" />
+          <ScalarProperty Name="EmailCLiente" ColumnName="EmailCLiente" />
+          <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_EmpleadoDepartamentoSucursal">
+      <EntityTypeMapping TypeName="BancoPeruModel.vw_EmpleadoDepartamentoSucursal">
+        <MappingFragment StoreEntitySet="vw_EmpleadoDepartamentoSucursal">
+          <ScalarProperty Name="DNIEmpleado" ColumnName="DNIEmpleado" />
+          <ScalarProperty Name="NombreEmpleado" ColumnName="NombreEmpleado" />
+          <ScalarProperty Name="ApellidoEmplado" ColumnName="ApellidoEmplado" />
+          <ScalarProperty Name="NombreDepartamento" ColumnName="NombreDepartamento" />
+          <ScalarProperty Name="NombreSucursal" ColumnName="NombreSucursal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_VistaPagos">
+      <EntityTypeMapping TypeName="BancoPeruModel.vw_VistaPagos">
+        <MappingFragment StoreEntitySet="vw_VistaPagos">
+          <ScalarProperty Name="IdPago" ColumnName="IdPago" />
+          <ScalarProperty Name="IdPrestamo" ColumnName="IdPrestamo" />
+          <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+          <ScalarProperty Name="ImportePago" ColumnName="ImportePago" />
+          <ScalarProperty Name="NroCuota" ColumnName="NroCuota" />
+          <ScalarProperty Name="FechaPago" ColumnName="FechaPago" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="DNICliente" ColumnName="DNICliente" />
+          <ScalarProperty Name="EstadoPago" ColumnName="EstadoPago" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_VistaPrestamos">
+      <EntityTypeMapping TypeName="BancoPeruModel.vw_VistaPrestamos">
+        <MappingFragment StoreEntitySet="vw_VistaPrestamos">
+          <ScalarProperty Name="IdPrestamo" ColumnName="IdPrestamo" />
+          <ScalarProperty Name="FechaPrestamo" ColumnName="FechaPrestamo" />
+          <ScalarProperty Name="IdCLiente" ColumnName="IdCLiente" />
+          <ScalarProperty Name="NombresCliente" ColumnName="NombresCliente" />
+          <ScalarProperty Name="DNICliente" ColumnName="DNICliente" />
+          <ScalarProperty Name="Importe" ColumnName="Importe" />
+          <ScalarProperty Name="Interestotal" ColumnName="Interestotal" />
+          <ScalarProperty Name="Importetotal" ColumnName="Importetotal" />
+          <ScalarProperty Name="EstadoPrestamo" ColumnName="EstadoPrestamo" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="usp_ClienteConsultar" FunctionName="BancoPeruModel.Store.usp_ClienteConsultar">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BancoPeruModel.usp_ClienteConsultar_Result">
+          <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+          <ScalarProperty Name="DNICliente" ColumnName="DNICliente" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="DireccionCliente" ColumnName="DireccionCliente" />
+          <ScalarProperty Name="TelefonoCliente" ColumnName="TelefonoCliente" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_CuentaCliente" FunctionName="BancoPeruModel.Store.usp_CuentaCliente">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BancoPeruModel.usp_CuentaCliente_Result">
+          <ScalarProperty Name="NombreCliente" ColumnName="NombreCliente" />
+          <ScalarProperty Name="ApellidoCliente" ColumnName="ApellidoCliente" />
+          <ScalarProperty Name="CUENTA" ColumnName="CUENTA" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_DeudaCliente" FunctionName="BancoPeruModel.Store.usp_DeudaCliente" />
+    <FunctionImportMapping FunctionImportName="usp_PagosPendientes" FunctionName="BancoPeruModel.Store.usp_PagosPendientes">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BancoPeruModel.usp_PagosPendientes_Result">
+          <ScalarProperty Name="IdPago" ColumnName="IdPago" />
+          <ScalarProperty Name="IdPrestamo" ColumnName="IdPrestamo" />
+          <ScalarProperty Name="FechaPago" ColumnName="FechaPago" />
+          <ScalarProperty Name="DNICliente" ColumnName="DNICliente" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="ImportePago" ColumnName="ImportePago" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="uspPagoEliminar" FunctionName="BancoPeruModel.Store.uspPagoEliminar" />
+    <FunctionImportMapping FunctionImportName="uspSucursalActualizar" FunctionName="BancoPeruModel.Store.uspSucursalActualizar" />
+    <FunctionImportMapping FunctionImportName="usp_ClienteActualizar" FunctionName="BancoPeruModel.Store.usp_ClienteActualizar" />
+    <FunctionImportMapping FunctionImportName="usp_EmpleadoConsultar" FunctionName="BancoPeruModel.Store.usp_EmpleadoConsultar">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BancoPeruModel.usp_EmpleadoConsultar_Result">
+          <ScalarProperty Name="IdEmpleado" ColumnName="IdEmpleado" />
+          <ScalarProperty Name="DNIEmpleado" ColumnName="DNIEmpleado" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="DireccionEmpleado" ColumnName="DireccionEmpleado" />
+          <ScalarProperty Name="TelefonoEmpleado" ColumnName="TelefonoEmpleado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_ListarPrestamos" FunctionName="BancoPeruModel.Store.usp_ListarPrestamos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BancoPeruModel.usp_ListarPrestamos_Result">
+          <ScalarProperty Name="idPrestamo" ColumnName="idPrestamo" />
+          <ScalarProperty Name="NombresCliente" ColumnName="NombresCliente" />
+          <ScalarProperty Name="FechaPrestamo" ColumnName="FechaPrestamo" />
+          <ScalarProperty Name="Importe" ColumnName="Importe" />
+          <ScalarProperty Name="Importetotal" ColumnName="Importetotal" />
+          <ScalarProperty Name="Interestotal" ColumnName="Interestotal" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>
